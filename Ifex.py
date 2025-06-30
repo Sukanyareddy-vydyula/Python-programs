@@ -1,4 +1,4 @@
-
+print("hello world")
 '''
 A = int(input("A : "))
 B = int(input("B : "))
