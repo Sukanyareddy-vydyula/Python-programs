@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Simple Calculator</title>
+  <link rel="stylesheet"href="styles.css"/>
+</head>
+<style>
+        body {
+      font-family: sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 50px;
+    }
+    h1{
+      color: red;
+    }
+    #display {
+      width: 200px;
+      height: 40px;
+      font-size: 20px;
+      text-align: right;
+      margin-bottom: 9px;
+      border-width:10px;
+    }
+
+    .buttons {
+      display: grid;
+      grid-template-columns: repeat(4, 45px);
+      gap: 10px;
+    }
+    .btn{
+      background-color: yellow;
+    }
+  .Calculator{
+  background-color: #ffffff;
+  padding: 15px 12px;
+  border: 2px solid #ccc;
+  border-radius: 15px;
+  box-shadow: 0 8px 12px red;
+  width: 220px;
+}
+</style>
+<body>
+  <h1>Simple Calculator</h1>
+  <div class="Calculator">
+  <input type="text" id="display" readonly />
+    <div class="buttons">
+      <button class="btn" onclick="clearDisplay()">C</button>
+      <button class="btn" onclick="add('/')">/</button>
+      <button class="btn"onclick="add('*')">*</button>
+      <button class="btn"onclick="add('-')">-</button>
+
+      <button class="btn"onclick="add('7')">7</button>
+      <button class="btn"onclick="add('8')">8</button>
+      <button class="btn"onclick="add('9')">9</button>
+      <button class="btn"onclick="add('+')">+</button>
+
+      <button class="btn"onclick="add('4')">4</button>
+      <button class="btn"onclick="add('5')">5</button>
+      <button class="btn"onclick="add('6')">6</button>
+      <button class="btn"onclick="calculateResult()">=</button>
+
+      <button class="btn"onclick="add('1')">1</button>
+      <button class="btn"onclick="add('2')">2</button>
+      <button class="btn"onclick="add('3')">3</button>
+      <button class="btn"onclick="add('0')" class="zero">0</button>
+      <button class="btn" onclick="deleteLast()">clear</button>
+      <button class="btn"onclick="add('.')">.</button>
+
+    </div>
+    </div>
+  <script>
+  const display = document.getElementById("display");
+
+    function add(value) {
+      display.value += value;
+    }
+    function clearDisplay() {
+  display.value = "";
+}
+function deleteLast() {
+  display.value = display.value.slice(0, -1);
+}
+
+    function calculateResult() {
+      try {
+        display.value = eval(display.value);
+      } catch {
+        display.value = "Error";
+      }
+    }
+    </script>
+</body>
+</html>
